@@ -1,0 +1,36 @@
+<script>
+    let input = ["Andi", 1500000, 2, true];
+    let nama = input[0];
+    let gaji = input[1];
+    let bulan = input[2];
+    let pilihan = input[3];
+
+    let bpjs = gaji * 0.03;
+    let pajak = gaji * 0.05;
+    let tunjangan = 500000;
+
+
+    if (pilihan == true) {
+        function fungsiku(param1, param2, param3, param4) {
+            return "Nama : " + (param1) + '<br>' +
+                "Gaji Pokok : " + (param2) + '<br>' +
+                "Tunjangan : " + (tunjangan) + '<br>' +
+                "BPJS : " + (bpjs) + '<br>' +
+                "Pajak : " + (pajak) + '<br>' +
+                "==========================" + '<br>' +
+                "Gaji bersih : " + ((param2 + tunjangan) - (bpjs + pajak)) + '<br>' +
+                "==========================" + '<br>' +
+                "Total gaji : " + (((param2 + tunjangan) - (bpjs + pajak)) * param3)
+        }
+    } else {
+        return "Nama : " + (param1) + '<br>' +
+            "Gaji Pokok : " + (param2) + '<br>' +
+            "BPJS : " + (bpjs) + '<br>' +
+            "Pajak : " + (pajak) + '<br>' +
+            "==========================" + '<br>' +
+            "Gaji bersih : " + ((param2) - (bpjs + pajak))
+    }
+
+
+    document.write(fungsiku(nama, gaji, bulan, tunjangan));
+</script>
