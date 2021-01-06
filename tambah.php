@@ -1,26 +1,62 @@
 <?php
-CREATE TABLE `ambilmk` (
-  `nim` varchar(5),
-  `kodemk` varchar(4),
-  `nilai` float,
-  `smt` varchar(10),
-  `thajar` varchar(10),
-  PRIMARY KEY (`nim`,`kodemk`)
-);
 
-CREATE TABLE `mhs` (
-  `nim` varchar(5),
-  `namamhs` varchar(20),
-  `alamat` text,
-  `tgllhr` date,
-  PRIMARY KEY (`nim`)
-);
+require 'function.php';
+// cek apakah tombol sudah ditekan atau belum:
+if (isset($_POST["submit"])) {
 
-CREATE TABLE `mk` (
-  `kodemk` varchar(4),
-  `namamk` varchar(20),
-  `sks` int(11),
-  `smt` varchar(10),
-  PRIMARY KEY (`kodemk`)
-);
+  // cek apakah dara berhasil di tambahkan atau tidak
+  if (tambah($_POST) > 0) {
+    echo "
+            <script>
+                alert('Data berhasil Ditambahkan!');
+                document.location.href = 'index.php';
+            </script>
+            ";
+  } else {
+    echo "
+            <script>
+                alert('Data Gagal Ditambahkan');
+                document.location.href = 'index.php';
+            </script>
+            ";
+  }
+}
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tambah content</title>
+</head>
+
+<body>
+  <h1> Tambah content</h1>
+
+  <form action="" method="post">
+    <ul>
+      <li>
+        <label for="content">content : </label>
+        <input type="text" name="content" id="content" required>
+      </li>
+      <li>
+        <label for="image">Image : </label>
+        <input type="text" name="image" id="image" required>
+      </li>
+      <li>
+        <label for="id_user">Id_user : </label>
+        <input type="text" name="id_user" id="id_user" required>
+      </li>
+      <li>
+        <button type="submit" name="submit">Tambah Data</button>
+      </li>
+    </ul>
+
+
+  </form>
+</body>
+
+</html>
